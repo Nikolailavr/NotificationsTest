@@ -2,7 +2,7 @@ import uvicorn
 from fastapi import FastAPI
 from pymongo import MongoClient
 
-from env.env import DBSettings
+from misc.env import DBSettings
 from routes.routes import router
 
 app = FastAPI()

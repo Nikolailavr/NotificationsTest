@@ -6,7 +6,7 @@ from fastapi.encoders import jsonable_encoder
 from starlette.responses import JSONResponse
 
 from database.models import Notification, NotificationKey
-from env.env import EMAIL_TO
+from misc.env import EMAIL_TO
 from misc.email import send_email
 from schemas.notifications import notes_list
 

@@ -1,6 +1,6 @@
 from fastapi import BackgroundTasks
 
-from env.env import EmailSettings
+from misc.env import EmailSettings
 from fastapi_mail import ConnectionConfig, MessageSchema, FastMail, MessageType
 
 conf = ConnectionConfig(
