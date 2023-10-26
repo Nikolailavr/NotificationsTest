@@ -3,6 +3,16 @@ services:
   web:
     build: ./project
     command: uvicorn main:app --reload
+    environment:
+      - SMTP_HOST='smtp.yandex.ru'
+      - SMTP_PORT=465
+      - SMTP_LOGIN='temp@yandex.ru'
+      - SMTP_PASSWORD='123456789'
+      - SMTP_EMAIL='temp@yandex.ru'
+      - SMTP_NAME='Test Notifications'
+      - EMAIL='temp_to@yandex.ru'
+      - DB_PORT=27017
+      - DB_URL=mongodb://mongodb:27017/notifications_db
     volumes:
       - ./project:/usr/src/app/
     ports:
@@ -11,9 +21,14 @@ services:
       - mongodb
   mongodb:
     image: mongo:7.0-jammy
+    restart: always
     ports:
       - '27017:27017'
     volumes:
       - db:/data/db
+    environment:
+      - MONGO_INITDB_DATABASE=notifications_db
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
 volumes:
   db:
