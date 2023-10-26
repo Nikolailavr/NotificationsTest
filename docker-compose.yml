@@ -2,7 +2,7 @@ version: '3.8'
 services:
   web:
     build: ./project
-    command: python3 main.py
+    command: uvicorn main:app --reload
     environment:
       - SMTP_HOST=smtp.yandex.ru
       - SMTP_PORT=465
@@ -20,7 +20,7 @@ services:
     depends_on:
       - mongodb
   mongodb:
-    image: mongo:7.0-jammy
+    image: mongo
     restart: always
     ports:
       - '27017:27017'
