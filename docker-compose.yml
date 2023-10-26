@@ -12,7 +12,7 @@ services:
       - SMTP_NAME=Test Notifications
       - EMAIL=temp_to@yandex.ru
       - DB_PORT=27017
-      - DB_URL=mongodb://mongodb:27017/notifications_db
+      - DB_URL=mongodb://admin:admin@mongodb:27017/notifications_db
     volumes:
       - ./project:/usr/src/app/
     ports:
