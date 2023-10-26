@@ -2,7 +2,7 @@ version: '3.8'
 services:
   web:
     build: ./project
-    command: uvicorn main:app --reload
+    command: python3 main.py
     environment:
       - SMTP_HOST='smtp.yandex.ru'
       - SMTP_PORT=465
