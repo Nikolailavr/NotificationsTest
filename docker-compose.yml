@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  web:
+    build: ./project
+    command: uvicorn main:app --reload
+    volumes:
+      - ./project:/usr/src/app/
+    ports:
+      - 8000:8000
+    depends_on:
+      - mongodb
+  mongodb:
+    image: mongo:7.0-jammy
+    ports:
+      - '27017:27017'
+    volumes:
+      - db:/data/db
+volumes:
+  db:

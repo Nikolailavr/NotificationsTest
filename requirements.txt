@@ -1,0 +1,3 @@
+fastapi==0.104.0
+pymongo==4.5.0
+fastapi_mail==1.4.1
