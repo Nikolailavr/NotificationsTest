@@ -19,6 +19,8 @@ services:
       - 8000:8000
     depends_on:
       - mongodb
+    networks:
+      - note-network
   mongodb:
     image: mongo:4.4.24
     restart: always
@@ -30,5 +32,10 @@ services:
       - MONGO_INITDB_DATABASE=notifications_db
       - MONGO_INITDB_ROOT_USERNAME=admin
       - MONGO_INITDB_ROOT_PASSWORD=admin
+    networks:
+      - note-network
 volumes:
   db:
+networks:
+  note-network:
+    driver: bridge
